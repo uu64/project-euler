@@ -14,21 +14,21 @@ def is_abundant(number):
     return sum(divisors) > number
 
 
-def is_abundant_sum(number):
-    for i in abundants:
-        if (number - i) in abundants:
-            return True
-    return False
-
-
 for i in range (2, MAX + 1):
     if is_abundant(i):
         abundants.append(i)
 
+is_abundant_sum = [ False for i in range(MAX+1) ]
+for i in abundants:
+    for j in abundants:
+        if i+j <= MAX:
+            is_abundant_sum[i+j] = True
+        else:
+            break
+
 ans = 0
-for i in range(24, MAX + 1):
-    print(i)
-    if not is_abundant_sum(i):
+for i in range(1, MAX+1):
+    if not is_abundant_sum[i]:
         ans += i
 
 print(ans)
