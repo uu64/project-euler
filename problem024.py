@@ -13,10 +13,9 @@ def f(s, num_set):
 
     for i in num_set:
         c = str(i)
-        if not c in s:
-            tmp = num_set[:]
-            tmp.remove(c)
-            f(s+c, tmp)
+        tmp = num_set[:]
+        tmp.remove(c)
+        f(s+c, tmp)
         if counter == INDEX:
             return
 
