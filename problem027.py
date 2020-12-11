@@ -22,7 +22,7 @@ def is_prime(n):
 ans = 0
 max = 0
 for i in range(-1000, 1001):
-    for j in range(-1000, 1001):
+    for j in range(3, 1001):
         n = 0
         while True:
             tmp = n*n + i*n + j
