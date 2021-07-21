@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
 
-import math
-
 # NOTE: 9! * 8 = 2903040 < 10000000
-MAX = math.factorial(9) * 7
+MAX = 362880 * 7
+factorials = {
+    '0': 1,
+    '1': 1,
+    '2': 2,
+    '3': 6,
+    '4': 24,
+    '5': 120,
+    '6': 720,
+    '7': 5040,
+    '8': 40320,
+    '9': 362880
+}
+ans = 0
 
-for i in range(3, MAX + 1):
+for i in range(10, MAX + 1):
+    s = str(i)
     fac_sum = 0
-    for c in str(i):
-        fac_sum += math.factorial(int(c))
+    for c in s:
+        fac_sum += factorials[c]
+
     if fac_sum == i:
+        ans += fac_sum
         print(i)
+
+print(ans)
 
