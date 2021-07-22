@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-primes = set()
-
 def sieve(limit):
     is_prime = [True for _ in range(limit)]
     # primes = []
