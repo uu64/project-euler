@@ -13,13 +13,8 @@ def is_truncatable_prime(number):
         return False
 
     s = str(number)
-    truncated = set()
     for i in range(1, len(s)):
-        truncated.add(int(s[i:]))
-        truncated.add(int(s[:-i]))
-
-    for i in truncated:
-        if not is_prime(i):
+        if not is_prime(int(s[i:])) or not is_prime(int(s[:-i])):
             return False
 
     return True
