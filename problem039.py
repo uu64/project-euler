@@ -2,16 +2,20 @@
 
 c_max = 0
 ans = 0
+
 for p in range(4, 1001):
     count = 0
     # k < i + j
     for k in range(1, int(p/2)):
         for i in range(1, int(p/2)):
             j = p - (i + k)
+            if i > j:
+                break
             if k*k == i*i + j*j:
                 # print(f"{i}, {j}, {k}")
                 count += 1
-    if ans < count:
+    if c_max < count:
+        c_max = count
         ans = p
 
 print(ans)
